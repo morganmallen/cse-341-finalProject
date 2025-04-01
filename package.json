@@ -1,0 +1,35 @@
+{
+  "name": "cse-341-finalproject",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/morganmallen/cse-341-finalProject#readme",
+  "bugs": {
+    "url": "https://github.com/morganmallen/cse-341-finalProject/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morganmallen/cse-341-finalProject.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mongodb": "^6.15.0",
+    "nodemon": "^3.1.9",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
+    "validatorjs": "^3.22.1"
+  }
+}
