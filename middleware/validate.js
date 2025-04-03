@@ -1,6 +1,6 @@
 const validator = require("../helpers/validate");
 
-saveLaLigaClub = (req, res, next) => {
+const saveLaLigaClub = (req, res, next) => {
   const validationRule = {
     name: "required|string",
     position: "required|string",
@@ -21,7 +21,7 @@ saveLaLigaClub = (req, res, next) => {
   });
 };
 
-savePremierLeagueClub = (req, res, next) => {
+const savePremierLeagueClub = (req, res, next) => {
   const validationRule = {
     name: "required|string",
     position: "required|string",
@@ -42,7 +42,7 @@ savePremierLeagueClub = (req, res, next) => {
   });
 };
 
-savePlayer = (req, res, next) => {
+const savePlayer = (req, res, next) => {
   const validationRule = {
     name: "required|string",
     club: "required|string",
@@ -65,7 +65,7 @@ savePlayer = (req, res, next) => {
   });
 };
 
-saveManager = (req, res, next) => {
+const saveManager = (req, res, next) => {
   const validationRule = {
     name: "required|string",
     club: "required|string",
@@ -83,3 +83,10 @@ saveManager = (req, res, next) => {
     }
   });
 };
+
+module.exports = {
+    saveLaLigaClub,
+    savePremierLeagueClub,
+    saveManager,
+    savePlayer
+}
