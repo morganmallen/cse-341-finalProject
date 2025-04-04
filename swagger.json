@@ -7,13 +7,48 @@
   },
   "host": "localhost:3000",
   "basePath": "/",
-  "schemes": ["http", "https" ],
+  "schemes": [
+    "http",
+    "https"
+  ],
   "paths": {
+    "/login": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/laLiga/": {
       "get": {
-        "tags": ["La Liga"],
+        "tags": [],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -24,7 +59,7 @@
         }
       },
       "post": {
-        "tags": ["La Liga"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -56,9 +91,6 @@
           "204": {
             "description": "No Content"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -70,9 +102,11 @@
     },
     "/laLiga/{id}": {
       "get": {
-        "tags": ["La Liga"],
+        "tags": [],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -94,7 +128,7 @@
         }
       },
       "put": {
-        "tags": ["La Liga"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -135,9 +169,6 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -147,7 +178,7 @@
         }
       },
       "delete": {
-        "tags": ["La Liga"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -164,9 +195,6 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -175,9 +203,11 @@
     },
     "/premierLeague/": {
       "get": {
-        "tags": ["Premier League"],
+        "tags": [],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -188,7 +218,7 @@
         }
       },
       "post": {
-        "tags": ["Premier League"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -234,9 +264,11 @@
     },
     "/premierLeague/{id}": {
       "get": {
-        "tags": ["Premier League"],
+        "tags": [],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -258,7 +290,7 @@
         }
       },
       "put": {
-        "tags": ["Premier League"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -311,7 +343,7 @@
         }
       },
       "delete": {
-        "tags": ["Premier League"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -339,9 +371,11 @@
     },
     "/managers/": {
       "get": {
-        "tags": ["Managers"],
+        "tags": [],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -352,7 +386,7 @@
         }
       },
       "post": {
-        "tags": ["Managers"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -378,9 +412,6 @@
           "204": {
             "description": "No Content"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -392,9 +423,11 @@
     },
     "/managers/{id}": {
       "get": {
-        "tags": ["Managers"],
+        "tags": [],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -416,7 +449,7 @@
         }
       },
       "put": {
-        "tags": ["Managers"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -451,9 +484,6 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -463,7 +493,7 @@
         }
       },
       "delete": {
-        "tags": ["Managers"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -480,9 +510,6 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -491,9 +518,11 @@
     },
     "/players/": {
       "get": {
-        "tags": ["Players"],
+        "tags": [],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -504,7 +533,7 @@
         }
       },
       "post": {
-        "tags": ["Players"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -556,9 +585,11 @@
     },
     "/players/{id}": {
       "get": {
-        "tags": ["Players"],
+        "tags": [],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -580,7 +611,7 @@
         }
       },
       "put": {
-        "tags": ["Players"],
+        "tags": [],
         "description": "",
         "parameters": [
           {
@@ -639,7 +670,7 @@
         }
       },
       "delete": {
-        "tags": ["Players"],
+        "tags": [],
         "description": "",
         "parameters": [
           {

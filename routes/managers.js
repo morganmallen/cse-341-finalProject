@@ -12,18 +12,22 @@ router.get("/:id", managersController.getSingle);
 
 router.post(
   "/",
-  isAuthenticated,
+  // isAuthenticated,
   validation.saveManager,
   managersController.createManager
 );
 
 router.put(
   "/:id",
-  isAuthenticated,
+  // isAuthenticated,
   validation.saveManager,
   managersController.updateManager
 );
 
-router.delete("/:id", isAuthenticated, managersController.deleteManager);
+router.delete(
+  "/:id",
+  // isAuthenticated,
+  managersController.deleteManager
+);
 
 module.exports = router;

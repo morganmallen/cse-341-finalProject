@@ -12,18 +12,20 @@ router.get("/:id", laLigaClubsController.getSingle);
 
 router.post(
   "/",
-  isAuthenticated,
+  // isAuthenticated,
   validation.saveLaLigaClub,
   laLigaClubsController.createLaLigaClub
 );
 
 router.put(
   "/:id",
-  isAuthenticated,
+  // isAuthenticated,
   validation.saveLaLigaClub,
   laLigaClubsController.updateLaLigaClub
 );
 
-router.delete("/:id", isAuthenticated, laLigaClubsController.deleteLaLigaClub);
+router.delete("/:id", 
+  // isAuthenticated, 
+  laLigaClubsController.deleteLaLigaClub);
 
 module.exports = router;
