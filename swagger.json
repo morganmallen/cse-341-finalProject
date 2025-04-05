@@ -5,12 +5,9 @@
     "description": "Soccer Api",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse-341-finalproject-4wg2.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "http",
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/login": {
       "get": {
@@ -46,9 +43,7 @@
       "get": {
         "tags": [],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -104,9 +99,7 @@
       "get": {
         "tags": [],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -205,9 +198,7 @@
       "get": {
         "tags": [],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -266,9 +257,7 @@
       "get": {
         "tags": [],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -373,9 +362,7 @@
       "get": {
         "tags": [],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -425,9 +412,7 @@
       "get": {
         "tags": [],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -520,9 +505,7 @@
       "get": {
         "tags": [],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -587,9 +570,7 @@
       "get": {
         "tags": [],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
