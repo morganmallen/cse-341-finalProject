@@ -9,39 +9,9 @@
   "basePath": "/",
   "schemes": ["https"],
   "paths": {
-    "/login": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/logout": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/laLiga/": {
       "get": {
-        "tags": [],
+        "tags": ["La Liga"],
         "description": "",
         "produces": ["application/json"],
         "responses": {
@@ -54,7 +24,7 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": ["La Liga"],
         "description": "",
         "parameters": [
           {
@@ -97,7 +67,7 @@
     },
     "/laLiga/{id}": {
       "get": {
-        "tags": [],
+        "tags": ["La Liga"],
         "description": "",
         "produces": ["application/json"],
         "parameters": [
@@ -121,7 +91,7 @@
         }
       },
       "put": {
-        "tags": [],
+        "tags": ["La Liga"],
         "description": "",
         "parameters": [
           {
@@ -171,7 +141,7 @@
         }
       },
       "delete": {
-        "tags": [],
+        "tags": ["La Liga"],
         "description": "",
         "parameters": [
           {
@@ -196,7 +166,7 @@
     },
     "/premierLeague/": {
       "get": {
-        "tags": [],
+        "tags": ["Premier League"],
         "description": "",
         "produces": ["application/json"],
         "responses": {
@@ -209,7 +179,7 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": ["Premier League"],
         "description": "",
         "parameters": [
           {
@@ -255,7 +225,7 @@
     },
     "/premierLeague/{id}": {
       "get": {
-        "tags": [],
+        "tags": ["Premier League"],
         "description": "",
         "produces": ["application/json"],
         "parameters": [
@@ -279,7 +249,7 @@
         }
       },
       "put": {
-        "tags": [],
+        "tags": ["Premier League"],
         "description": "",
         "parameters": [
           {
@@ -332,7 +302,7 @@
         }
       },
       "delete": {
-        "tags": [],
+        "tags": ["Premier League"],
         "description": "",
         "parameters": [
           {
@@ -360,7 +330,7 @@
     },
     "/managers/": {
       "get": {
-        "tags": [],
+        "tags": ["Managers"],
         "description": "",
         "produces": ["application/json"],
         "responses": {
@@ -373,7 +343,7 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": ["Managers"],
         "description": "",
         "parameters": [
           {
@@ -410,7 +380,7 @@
     },
     "/managers/{id}": {
       "get": {
-        "tags": [],
+        "tags": ["Managers"],
         "description": "",
         "produces": ["application/json"],
         "parameters": [
@@ -434,7 +404,7 @@
         }
       },
       "put": {
-        "tags": [],
+        "tags": ["Managers"],
         "description": "",
         "parameters": [
           {
@@ -478,7 +448,7 @@
         }
       },
       "delete": {
-        "tags": [],
+        "tags": ["Managers"],
         "description": "",
         "parameters": [
           {
@@ -503,7 +473,7 @@
     },
     "/players/": {
       "get": {
-        "tags": [],
+        "tags": ["Players"],
         "description": "",
         "produces": ["application/json"],
         "responses": {
@@ -516,7 +486,7 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": ["Players"],
         "description": "",
         "parameters": [
           {
@@ -568,7 +538,7 @@
     },
     "/players/{id}": {
       "get": {
-        "tags": [],
+        "tags": ["Players"],
         "description": "",
         "produces": ["application/json"],
         "parameters": [
@@ -592,7 +562,7 @@
         }
       },
       "put": {
-        "tags": [],
+        "tags": ["Players"],
         "description": "",
         "parameters": [
           {
@@ -651,7 +621,7 @@
         }
       },
       "delete": {
-        "tags": [],
+        "tags": ["Players"],
         "description": "",
         "parameters": [
           {
