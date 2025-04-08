@@ -12,21 +12,21 @@ router.get("/:id", managersController.getSingle);
 
 router.post(
   "/",
-  // isAuthenticated,
+  isAuthenticated,
   validation.saveManager,
   managersController.createManager
 );
 
 router.put(
   "/:id",
-  // isAuthenticated,
+  isAuthenticated,
   validation.saveManager,
   managersController.updateManager
 );
 
 router.delete(
   "/:id",
-  // isAuthenticated,
+  isAuthenticated,
   managersController.deleteManager
 );
 
