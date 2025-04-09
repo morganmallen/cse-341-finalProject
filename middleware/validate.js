@@ -10,7 +10,7 @@ const saveLaLigaClub = (req, res, next) => {
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
-      res.status(412).send({
+      res.status(500).send({
         success: false,
         message: "Validation failed",
         data: err,
@@ -31,7 +31,7 @@ const savePremierLeagueClub = (req, res, next) => {
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
-      res.status(412).send({
+      res.status(500).send({
         success: false,
         message: "Validation failed",
         data: err,
@@ -54,7 +54,7 @@ const savePlayer = (req, res, next) => {
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
-      res.status(412).send({
+      res.status(500).send({
         success: false,
         message: "Validation failed",
         data: err,
@@ -73,7 +73,7 @@ const saveManager = (req, res, next) => {
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
-      res.status(412).send({
+      res.status(500).send({
         success: false,
         message: "Validation failed",
         data: err,
