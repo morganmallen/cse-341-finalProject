@@ -48,71 +48,86 @@ const getSingle = async (req, res) => {
 
 const createLaLigaClub = async (req, res) => {
   //#swagger.tags['La Liga']
-  const laLigaClub = {
-    name: req.body.name,
-    position: req.body.position,
-    wins: req.body.wins,
-    draws: req.body.draws,
-    losses: req.body.losses,
-  };
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("laLiga")
-    .insertOne(laLigaClub);
-  if (response.acknowledged) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(response.error || "Some error occurred while inserting the club");
+  try {
+    const laLigaClub = {
+      name: req.body.name,
+      position: req.body.position,
+      wins: req.body.wins,
+      draws: req.body.draws,
+      losses: req.body.losses,
+    };
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("laLiga")
+      .insertOne(laLigaClub);
+    if (response.acknowledged) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(response.error || "Some error occurred while inserting the club");
+    }
+  } catch (err) {
+    console.error("Error creating La Liga Club:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 
 const updateLaLigaClub = async (req, res) => {
   //#swagger.tags['La Liga']
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json("Must use a valid club id to update a club.");
-  }
-  const laLigaClubId = new ObjectId(req.params.id);
-  const laLigaClub = {
-    name: req.body.name,
-    position: req.body.position,
-    wins: req.body.wins,
-    draws: req.body.draws,
-    losses: req.body.losses,
-  };
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("laLiga")
-    .replaceOne({ _id: laLigaClubId }, laLigaClub);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(response.error || "Some error occurred while updating the club");
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid club id to update a club.");
+    }
+    const laLigaClubId = new ObjectId(req.params.id);
+    const laLigaClub = {
+      name: req.body.name,
+      position: req.body.position,
+      wins: req.body.wins,
+      draws: req.body.draws,
+      losses: req.body.losses,
+    };
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("laLiga")
+      .replaceOne({ _id: laLigaClubId }, laLigaClub);
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(response.error || "Some error occurred while updating the club");
+    }
+  } catch (err) {
+    console.error("Error updating La Liga Club:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 
 const deleteLaLigaClub = async (req, res) => {
   //#swagger.tags['La Liga']
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json("Must use a valid club id to delete a club.");
-  }
-  const laLigaClubId = new ObjectId(req.params.id);
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("laLiga")
-    .deleteOne({ _id: laLigaClubId });
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(response.error || "Some error occurred while deleting the club");
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid club id to delete a club.");
+    }
+    const laLigaClubId = new ObjectId(req.params.id);
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("laLiga")
+      .deleteOne({ _id: laLigaClubId });
+    if (response.deletedCount > 0) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(response.error || "Some error occurred while deleting the club");
+    }
+  } catch {
+    console.error("Error deleting La Liga Club:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 

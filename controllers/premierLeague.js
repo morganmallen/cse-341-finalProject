@@ -48,71 +48,86 @@ const getSingle = async (req, res) => {
 
 const createPremierLeagueClub = async (req, res) => {
   //#swagger.tags['Premier League']
-  const premierLeagueClub = {
-    name: req.body.name,
-    position: req.body.position,
-    wins: req.body.wins,
-    draws: req.body.draws,
-    losses: req.body.losses,
-  };
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("premierLeague")
-    .insertOne(premierLeagueClub);
-  if (response.acknowledged) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(response.error || "Some error occurred while inserting the club");
+  try {
+    const premierLeagueClub = {
+      name: req.body.name,
+      position: req.body.position,
+      wins: req.body.wins,
+      draws: req.body.draws,
+      losses: req.body.losses,
+    };
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("premierLeague")
+      .insertOne(premierLeagueClub);
+    if (response.acknowledged) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(response.error || "Some error occurred while inserting the club");
+    }
+  } catch (err) {
+    console.error("Error creating Premier League Club:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 
 const updatePremierLeagueClub = async (req, res) => {
   //#swagger.tags['Premier League']
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json("Must use a valid club id to update a club.");
-  }
-  const premierLeagueClubId = new ObjectId(req.params.id);
-  const premierLeagueClub = {
-    name: req.body.name,
-    position: req.body.position,
-    wins: req.body.wins,
-    draws: req.body.draws,
-    losses: req.body.losses,
-  };
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("premierLeague")
-    .replaceOne({ _id: premierLeagueClubId }, premierLeagueClub);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(response.error || "Some error occurred while updating the club");
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid club id to update a club.");
+    }
+    const premierLeagueClubId = new ObjectId(req.params.id);
+    const premierLeagueClub = {
+      name: req.body.name,
+      position: req.body.position,
+      wins: req.body.wins,
+      draws: req.body.draws,
+      losses: req.body.losses,
+    };
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("premierLeague")
+      .replaceOne({ _id: premierLeagueClubId }, premierLeagueClub);
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(response.error || "Some error occurred while updating the club");
+    }
+  } catch (err) {
+    console.error("Error updating Premier League Club:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 
 const deletePremierLeagueClub = async (req, res) => {
   //#swagger.tags['Premier League']
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json("Must use a valid club id to delete a club.");
-  }
-  const premierLeagueClubId = new ObjectId(req.params.id);
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("premierLeague")
-    .deleteOne({ _id: premierLeagueClubId });
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(response.error || "Some error occurred while deleting the club");
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid club id to delete a club.");
+    }
+    const premierLeagueClubId = new ObjectId(req.params.id);
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("premierLeague")
+      .deleteOne({ _id: premierLeagueClubId });
+    if (response.deletedCount > 0) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(response.error || "Some error occurred while deleting the club");
+    }
+  } catch (err) {
+    console.error("Error deleting Premier League Club:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 

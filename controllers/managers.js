@@ -50,69 +50,88 @@ const getSingle = async (req, res) => {
 
 const createManager = async (req, res) => {
   //#swagger.tags['Managers']
-  const manager = {
-    name: req.body.name,
-    nationality: req.body.nationality,
-    club: req.body.club,
-  };
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("managers")
-    .insertOne(manager);
-  if (response.acknowledged) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(
-        response.error || "Some error occurred while inserting the manager"
-      );
+  try {
+    const manager = {
+      name: req.body.name,
+      nationality: req.body.nationality,
+      club: req.body.club,
+    };
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("managers")
+      .insertOne(manager);
+    if (response.acknowledged) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(
+          response.error || "Some error occurred while inserting the manager"
+        );
+    }
+  } catch (err) {
+    console.error("Error creating Player:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 
 const updateManager = async (req, res) => {
   //#swagger.tags['Managers']
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json("Must use a valid manager id to update a manager.");
-  }
-  const managerId = new ObjectId(req.params.id);
-  const manager = {
-    name: req.body.name,
-    nationality: req.body.nationality,
-    club: req.body.club,
-  };
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("managers")
-    .replaceOne({ _id: managerId }, manager);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(response.error || "Some error occurred while updating the manager");
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid manager id to update a manager.");
+    }
+    const managerId = new ObjectId(req.params.id);
+    const manager = {
+      name: req.body.name,
+      nationality: req.body.nationality,
+      club: req.body.club,
+    };
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("managers")
+      .replaceOne({ _id: managerId }, manager);
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(
+          response.error || "Some error occurred while updating the manager"
+        );
+    }
+  } catch (err) {
+    console.error("Error creating Player:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 
 const deleteManager = async (req, res) => {
   //#swagger.tags['Managers']
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json("Must use a valid manager id to delete a manager.");
-  }
-  const managerId = new ObjectId(req.params.id);
-  const response = await mongodb
-    .getDatabase()
-    .db()
-    .collection("managers")
-    .deleteOne({ _id: managerId });
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(response.error || "Some error occurred while deleting the manager");
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json("Must use a valid manager id to delete a manager.");
+    }
+    const managerId = new ObjectId(req.params.id);
+    const response = await mongodb
+      .getDatabase()
+      .db()
+      .collection("managers")
+      .deleteOne({ _id: managerId });
+    if (response.deletedCount > 0) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(
+          response.error || "Some error occurred while deleting the manager"
+        );
+    }
+  } catch (err) {
+    console.error("Error deleting Manager:", err);
+    res.status(500).json({ message: err.message });
   }
 };
 
